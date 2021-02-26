@@ -53,12 +53,12 @@ namespace memoryGame
                 this.buttons[this.arr[i]].BackColor = color[i];
                 if (cont == 0)
                 {
-                    elements[this.arr[i]] = new Element(buttons[i], color[i], i, i + 1);
+                    elements[this.arr[i]] = new Element(color[i], i, i + 1);
                     cont++;
                 }
                 else if(cont >= 1)
                 {
-                    elements[this.arr[i]] = new Element(buttons[i], color[i], i, i - 1);
+                    elements[this.arr[i]] = new Element(color[i], i, i - 1);
                     cont = 0;
                 }
             }
@@ -193,19 +193,16 @@ namespace memoryGame
 
     public class Element
     {
-        Button _button;
         Color _color;
         int _ownPosition;
         int _parPosition;
        
         public int OwnPosition { get => _ownPosition; set => _ownPosition = value; }
         public int ParPosition { get => _parPosition; set => _parPosition = value; }
-        public Button Button { get => _button; set => _button = value; }
         public Color Color { get => _color; set => _color = value; }
 
-        public Element(Button button, Color color, int ownPosition, int parPosition)
+        public Element(Color color, int ownPosition, int parPosition)
         {
-            this._button = button;
             this._color = color;
             this._ownPosition = ownPosition;
             this._parPosition = parPosition;
